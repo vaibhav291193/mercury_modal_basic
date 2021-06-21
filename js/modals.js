@@ -161,6 +161,10 @@ aria.Utils = aria.Utils || {};
 
         // Disable scroll on the body element
         document.body.classList.add(aria.Utils.dialogOpenClass);
+        
+        // Setting body aria hidden so on mobile device wont read the background text and elements
+        document.body.setAttribute('aria-hidden', 'true');
+
 
         if (typeof focusAfterClosed === 'string') {
             this.focusAfterClosed = document.getElementById(focusAfterClosed);
@@ -213,6 +217,9 @@ aria.Utils = aria.Utils || {};
             aria.Utils.focusFirstDescendant(this.dialogNode);
         }
 
+        // For scroll of text, setting tabindex on FIRST p element
+        this.dialogNode.getElementsByTagName("P").item(0).setAttribute("tabindex", "0");
+
         this.lastFocus = document.activeElement;
     }; // end Dialog constructor
 
@@ -247,6 +254,7 @@ aria.Utils = aria.Utils || {};
         }
         else {
             document.body.classList.remove(aria.Utils.dialogOpenClass);
+            document.body.removeAttribute('aria-hidden');
         }
     }; // end close
 
