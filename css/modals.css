@@ -34,6 +34,11 @@ Do not delete the following comment. It is essential for tracking purposes.
 #Merc2021DoNotDelete 
 */
 
+.screen-reader{
+  visibility: hidden; 
+  width: 1px; 
+  height: 1px;
+}
 .hidden {
   display: none;
 }
@@ -74,7 +79,7 @@ Do not delete the following comment. It is essential for tracking purposes.
     max-height: 100vh;
     overflow: hidden;
 
-    padding: 0px 4px 12px 12px;
+    padding: 0px 0px 12px 12px;
   }
 }
 
@@ -110,7 +115,7 @@ Do not delete the following comment. It is essential for tracking purposes.
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.33;
+  line-height: 32px;
   letter-spacing: 0.2px;
   color: #111111;
   text-align: left;
@@ -133,13 +138,18 @@ Do not delete the following comment. It is essential for tracking purposes.
     margin: 67px 0 0 0;
     max-height: calc(100vh - 67px) !important;
     min-height: calc(100vh - 67px) !important;
-    padding: 4px 12px 12px 4px;
+    padding: 4px 4px 12px 4px;
   }
 }
 
 /* Scroll */
 .dialog_form::-webkit-scrollbar {
 	 width: 14px;
+}
+@media screen and (max-width: 640px) {
+  .dialog_form::-webkit-scrollbar {
+	  width: 12px;
+  }
 }
 .dialog_form {
 	 --scrollbarBG: #fff;
@@ -149,8 +159,8 @@ Do not delete the following comment. It is essential for tracking purposes.
 }
 .dialog_form::-webkit-scrollbar-track {
 	 background: var(--scrollbarBG);
-	 margin-top: 5px;
-   margin-bottom: 35px;
+	 margin-top: 0px;
+   margin-bottom: 12px;
 }
 .dialog_form::-webkit-scrollbar-thumb {
 	 background-color: #888;
@@ -346,6 +356,13 @@ button,
   cursor: pointer;
 }
 
+button:only-of-type,
+.button:only-of-type,
+button:last-child,
+.button:last-child {
+  margin-bottom: 0px;
+}
+
 button + button,
 .button + .button {
   margin-left: 12px;
@@ -461,13 +478,25 @@ a[role="button"].copy:before {
   clear: both;
 }
 
+
 @media only screen and (max-width: 40em) {
+  .dialog_label {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 28px;
+    letter-spacing: 0.4px;
+    color: #111111;
+  }
+  
+
   button,
   .button {
     min-width: 100%;
     margin-bottom: 16px;
   }
 
+  button:only-of-type,
+  .button:only-of-type,
   button:last-child,
   .button:last-child {
     margin-bottom: 0px;
