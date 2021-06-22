@@ -163,7 +163,7 @@ aria.Utils = aria.Utils || {};
         document.body.classList.add(aria.Utils.dialogOpenClass);
         
         // Setting body aria hidden so on mobile device wont read the background text and elements - Nauman
-        // document.body.setAttribute('aria-hidden', 'true');
+        document.body.setAttribute('aria-hidden', 'true');
 
 
         if (typeof focusAfterClosed === 'string') {
@@ -255,7 +255,7 @@ aria.Utils = aria.Utils || {};
         else {
             document.body.classList.remove(aria.Utils.dialogOpenClass);
             // For background text not readable - Nauman
-            // document.body.removeAttribute('aria-hidden');
+            document.body.removeAttribute('aria-hidden');
         }
     }; // end close
 
